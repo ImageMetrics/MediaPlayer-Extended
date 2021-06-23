@@ -15,15 +15,15 @@ repositories {
 }
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         // Keep old ITEC package name as application Id for Play Store compatibility
         applicationId 'at.aau.itec.android.mediaplayerdemo'
 
-        minSdkVersion 16
-        targetSdkVersion 22
+        minSdkVersion 23
+        targetSdkVersion 30
         versionCode 1
         versionName '1.0'
         buildConfigField "boolean", "CRASHLYTICS_CONFIGURED", "${isChrashlyticsConfigured()}"
@@ -51,7 +51,7 @@ android {
             if (variant.name == android.buildTypes.release.name) {
                 def file = output.outputFile
                 def fileName = file.name.replace(".apk", "-" + defaultConfig.versionCode + "-" + defaultConfig.versionName + ".apk")
-                output.outputFile = new File(file.parent, fileName)
+                output.outputFileName = new File(fileName)
             }
         }
     }
