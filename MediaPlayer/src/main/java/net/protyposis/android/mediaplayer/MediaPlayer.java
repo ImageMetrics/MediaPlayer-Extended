@@ -1264,6 +1264,7 @@ public class MediaPlayer {
                     mEventHandler.sendMessage(mEventHandler.obtainMessage(MEDIA_INFO,
                             MEDIA_INFO_VIDEO_RENDERING_START, 0));
                 }
+                mTimeBase.startAt(mCurrentPosition); // In case media has no audio
             }
 
             if (mAudioPlayback != null) {
