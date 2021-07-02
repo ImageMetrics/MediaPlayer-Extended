@@ -33,7 +33,7 @@ import java.util.Queue;
  *
  * Created by maguggen on 23.09.2014.
  */
-class AudioPlayback {
+public class AudioPlayback {
 
     private static final String TAG = AudioPlayback.class.getSimpleName();
 
