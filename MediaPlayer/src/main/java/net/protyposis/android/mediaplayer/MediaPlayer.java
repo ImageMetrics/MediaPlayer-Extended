@@ -824,6 +824,16 @@ public class MediaPlayer {
         return mVideoFormat != null ? mVideoFormat.getInteger(MediaFormat.KEY_HEIGHT) : 0;
     }
 
+    public int getVideoRotation() {
+        if(mCurrentState.ordinal() >= State.RELEASING.ordinal()) {
+            mCurrentState = State.ERROR;
+            throw new IllegalStateException();
+        }
+
+        return (mVideoFormat != null && mVideoFormat.containsKey(MediaFormat.KEY_ROTATION)) ?
+          mVideoFormat.getInteger(MediaFormat.KEY_ROTATION) : 0;
+    }
+
     /**
      * @see android.media.MediaPlayer#setVolume(float, float)
      */
