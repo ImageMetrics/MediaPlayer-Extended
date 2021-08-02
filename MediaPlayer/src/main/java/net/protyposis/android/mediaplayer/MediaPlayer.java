@@ -950,6 +950,13 @@ public class MediaPlayer {
         return mCueTimeline.removeCue(cue);
     }
 
+    /**
+     * Resets starting offset to avoid current time and seek time out of sync
+     */
+    public void resetMediaOffset() {
+        mAudioMinPTS = mVideoMinPTS = 0;
+    }
+
     private class PlaybackThread extends HandlerThread implements Handler.Callback {
 
         private static final int PLAYBACK_PREPARE = 1;
